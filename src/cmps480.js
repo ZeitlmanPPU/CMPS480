@@ -82,7 +82,7 @@ function users(req, res) {
       return;
     }
     // query the database
-    conn.query("SELECT * FROM USERS", function(err, rows, fields) {
+    conn.query("SELECT * FROM Students_has_Course_Offering", function(err, rows, fields) {
       // build json result object
       var outjson = {};
       if (err) {
