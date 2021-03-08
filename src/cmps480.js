@@ -10,11 +10,11 @@ http.createServer(function(req, res) {
     if (path === "/users") {
       users(req, res);
     }
-    else if (path === "/students") {
-      students(req, res);
-    }
     else if (path === "/add_user") {
       addUser(req, res);
+    }
+    else if (path === "/students") {
+      students(req, res);
     }
     else {
       serveStaticFile(res, path);
@@ -82,7 +82,7 @@ function users(req, res) {
       return;
     }
     // query the database
-    conn.query("SELECT * FROM Students_has_Course_Offering", function(err, rows, fields) {
+    conn.query("SELECT * FROM USERS", function(err, rows, fields) {
       // build json result object
       var outjson = {};
       if (err) {
@@ -112,7 +112,7 @@ function students(req, res) {
       return;
     }
     // query the database
-    conn.query("SELECT * FROM Students", function(err, rows, fields) {
+    conn.query("SELECT * FROM students", function(err, rows, fields) {
       // build json result object
       var outjson = {};
       if (err) {
