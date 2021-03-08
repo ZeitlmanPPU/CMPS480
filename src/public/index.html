@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -34,7 +34,8 @@
      });
    }
    showUsers();
-   
+     
+
    function showStudents() {
      $("#students").empty();
      $("#students").append("Loading data ...");
@@ -48,10 +49,10 @@
          }
          else {
            $("#students").empty();
-           $("#studens").append("Students:<br>");
+           $("#students").append("Students:<br>");
            var rows = json.data;
            for (var i = 0; i < rows.length; i++) {
-             $("#students").append(rows[i].ID + " " + rows[i].NAME + " " + rows[i].Email + " " + rows[i].Student_Number + "<br>");
+             $("#students").append(rows[i].StudentID + " " + rows[i].StudentName + " " + rows[i].Major + "<br>");
            }
          }
        },
@@ -61,7 +62,35 @@
      });
    }
    showStudents();
-   
+ 
+
+  /* function showMajor() {
+     $("#major").empty();
+     $("#major").append("Loading data ...");
+     $.ajax({
+       type: "GET",
+       url: "major",
+       success: function(json) {
+         //console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           $("#major").empty();
+           $("#major").append("Major:<br>");
+           var rows = json.data;
+           for (var i = 0; i < rows.length; i++) {
+             $("#major").append(rows[i].MajorName + "<br>");
+           }
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   }
+   showMajor();
+*/
    $("#new_name_button").click(function() {
      var name = $("#new_name_input").val();
      $.ajax({
