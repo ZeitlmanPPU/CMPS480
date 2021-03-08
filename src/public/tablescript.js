@@ -8,7 +8,7 @@ function maketable()
     st_data_request.onload = function()
     {
     
-    }​​;
+    }
    /* var tdata = JSON.parse(st_data_request.responseText); */
     
 
