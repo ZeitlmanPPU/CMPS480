@@ -45,24 +45,25 @@ body {
 a{color:inherit;text-decoration:none}
 
 
-.landing-wrap{
-    width:100%;
-	margin:none;
-	max-width: 100%;
-	min-height:100%;
-	position:absolute;
-	background:url(https://www.pointpark.edu/admissions/undergraduate/fulltimeundergraduate/media/admissions/ftadmissions/schafer_village_park_110922_cropped_big.jpg) no-repeat center;
-  background-size:contain;
-  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-
+.landing-wrap {
+    width: 100%;
+    margin: none;
+    max-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    background: url(https://www.pointpark.edu/admissions/undergraduate/fulltimeundergraduate/media/admissions/ftadmissions/schafer_village_park_110922_cropped_big.jpg) no-repeat center;
+    background-size: contain;
+    background-attachment: fixed;
+    box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 
-.landing-html{
+.landing-html {
     width: 100%;
-	height: 100%;
-    position:absolute;
-	padding:90px 70px 50px 70px;
-	background:rgba(40,57,101,.9);
+    height: 100%;
+    position: absolute;
+    padding: 90px 70px 50px 70px;
+    background: rgba(40,57,101,.9);
+    background-attachment: fixed;
 }
 
 

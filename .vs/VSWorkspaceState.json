@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\public"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\src\\public\\tablescript.js",
   "PreviewInSolutionExplorer": false
 }
