@@ -3,23 +3,18 @@
 <Head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-
-
-
     <link rel="stylesheet" type="text/css" href="style.css" />
 
 </Head>
 
-<Body>
+<body onload="maketable()">
     <script src="./tablescript.js"></script>
 
 
     <div class="landing-wrap">
         <div class="landing-html">
-            <input type="button" value="Generate Table" onclick="maketable()" />
 
-            <table>
+            <table id="classtable">
 
                 <tr>
                     <th> Class Name </th>
