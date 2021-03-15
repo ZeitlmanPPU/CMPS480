@@ -1,6 +1,6 @@
 function maketable() {
     var st_data_request = new XMLHttpRequest();
-    st_data_request.open('GET', 'http://mssapie.it.pointpark.edu:3000/students');
+    st_data_request.open('GET', 'http://bahayzl.it.pointpark.edu:3000/students');
     st_data_request.send();
     //after loading the variable data, create calls to the conversion and display functions
 
@@ -14,14 +14,46 @@ function maketable() {
 }
 
 function displayTable(data) {
+
+    var table = document.getElementById("classtable");
+
+var rowNode = document.createElement("tr");
+var cellNode = document.createElement("td");
+var sectNode = document.createTextNode("Class Name");
+var nameNode = document.createTextNode("Class Section");
+var timeNode = document.createTextNode("Class Time");
+
+
     //var table = document.createElement("TABLE");
    // table.border = "1";
     var students = data.data;
-    for (var i = 0; i < students.length; i++) {
-        var student = students[i];
-        console.log(student.StudentName);
-        $("#students").append(student.StudentID + " " + student.StudentName + "<br>");
-    }
+    console.log(students.length);
+    for (var i = -1; i < students.length; i++) {
+        console.log("i= "+i);
+        if (i == -1){
+
+            cellNode.appendChild(sectNode);
+            rowNode.appendChild(cellNode);
+            cellNode.appendChild(nameNode);
+            rowNode.appendChild(cellNode);
+            cellNode.appendChild(timeNode);
+        rowNode.appendChild(cellNode);
+        table.appendChild(rowNode);}
+        
+        else{ cellNode.appendChild(document.createTextNode(students[i].StudentID));
+            rowNode.appendChild(cellNode);
+            cellNode.appendChild(document.createTextNode(students[i].StudentName));
+            rowNode.appendChild(cellNode);
+            cellNode.appendChild(document.createTextNode(students[i].Major));
+        rowNode.appendChild(cellNode);
+        table.appendChild(rowNode);
+    break;}
+
+        }
+        //var student = students[i];
+        //console.log(student.StudentName);
+        //$("#students").append(student.StudentID + " " + student.StudentName + "<br>");
+    
     /* //Get the count of columns.
      var columnCount = customers[0].length;
  
