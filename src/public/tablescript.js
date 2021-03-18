@@ -1,6 +1,6 @@
 function maketable() {
     var co_data_request = new XMLHttpRequest();
-    co_data_request.open('GET', 'http://rfzeitl.it.pointpark.edu:3000/courses');
+    co_data_request.open('GET', 'http://bahayzl.it.pointpark.edu:3000/courses');
     co_data_request.send();
     //after loading the variable data, create calls to the conversion and display functions
 
@@ -13,11 +13,19 @@ function maketable() {
     //   var tdata = JSON.parse(st_data_request.responseText);
 }
 
+  co_data_request.onload = function () {
+      var cdata = JSON.parse(co_data_request.responseText);
+      console.log(cdata);
+      // console.log("Student ID is " + tdata.data[0].StudentID);
+      displayTable(cdata);
+  }
+  //   var tdata = JSON.parse(st_data_request.responseText);
+
 function displayTable(data)
 {
     var table = document.getElementById("classtable");
-    var sectNode = "Class Name";
-    var nameNode = "Class Section";
+    var sectNode = "Class Section";
+    var nameNode = "Class Name";
     var timeNode = "Class Time";
     var courses = data.data;
     var cols = Object.getOwnPropertyNames(courses[0]).length;
