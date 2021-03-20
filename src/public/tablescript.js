@@ -1,6 +1,6 @@
 function maketable() {
     var co_data_request = new XMLHttpRequest();
-    co_data_request.open('GET', 'http://bahayzl.it.pointpark.edu:3000/courses');
+    co_data_request.open('GET', 'http://bahayzl.it.pointpark.edu:3000/students_has_course_offering');
     co_data_request.send();
     //after loading the variable data, create calls to the conversion and display functions
 
@@ -24,11 +24,10 @@ function maketable() {
 function displayTable(data)
 {
     var table = document.getElementById("classtable");
-    var sectNode = "Class Section";
-    var nameNode = "Class Name";
-    var timeNode = "Class Time";
-    var courses = data.data;
-    var cols = Object.getOwnPropertyNames(courses[0]).length;
+    var stidNode = "Student ID";
+    var sectNode = "Course Section";
+    var students_has_course_offering = data.data;
+    var cols = Object.getOwnPropertyNames(students_has_course_offering[0]).length;
 
     //Add the header row.
     var row = table.insertRow(-1);
@@ -38,20 +37,17 @@ function displayTable(data)
         switch(i)
         {
           case 0:
-          headerCell.innerHTML = sectNode;
+          headerCell.innerHTML = stidNode;
           break;
           case 1:
-          headerCell.innerHTML = nameNode;
-          break;
-          case 2:
-          headerCell.innerHTML = timeNode;
+          headerCell.innerHTML = sectNode;
           break;
         }
         row.appendChild(headerCell);
     }
 
     //Add the data rows.
-    for (var i = 0; i < courses.length; i++)
+    for (var i = 0; i < students_has_course_offering.length; i++)
     {
       //var tableRow = document.createElement("tr");
 
@@ -62,16 +58,12 @@ function displayTable(data)
         switch(j)
         {
           case 0:
-          tableCell.innerHTML = courses[i].CourseSection;
-          console.log("in switch 0: " + courses[i].CourseSection);
+          tableCell.innerHTML = students_has_course_offering[i].Students_StudentID;
+          console.log("in switch 0: " + students_has_course_offering[i].Students_StudentID);
           break;
           case 1:
-          tableCell.innerHTML = courses[i].CourseName;
-          console.log("in switch 1: " + courses[i].CourseName);
-          break;
-          case 2:
-          tableCell.innerHTML = courses[i].CourseTime;
-          console.log("in switch 2: " + courses[i].CourseTime);
+          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_Section;
+          console.log("in switch 1: " + students_has_course_offering[i].Course_Offering_Section);
           break;
         }
         row.appendChild(tableCell);
