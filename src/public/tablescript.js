@@ -13,34 +13,37 @@ function maketable() {
     //   var tdata = JSON.parse(st_data_request.responseText);
 }
 
-  co_data_request.onload = function () {
-      var cdata = JSON.parse(co_data_request.responseText);
-      console.log(cdata);
-      // console.log("Student ID is " + tdata.data[0].StudentID);
-      displayTable(cdata);
-  }
-  //   var tdata = JSON.parse(st_data_request.responseText);
-
 function displayTable(data)
 {
     var table = document.getElementById("classtable");
-    var stidNode = "Student ID";
     var sectNode = "Course Section";
+    var nameNode = "Course Name";
+    var locNode = "Class Location";
+    var timeNode = "Time of Class";
+    var profNode = "Professor Name";
     var students_has_course_offering = data.data;
-    var cols = Object.getOwnPropertyNames(students_has_course_offering[0]).length;
 
     //Add the header row.
     var row = table.insertRow(-1);
-    for (var i = 0; i < cols; i++)
+    for (var i = 0; i < 5; i++)
     {
         var headerCell = document.createElement("th");
         switch(i)
         {
           case 0:
-          headerCell.innerHTML = stidNode;
+          headerCell.innerHTML = sectNode;
           break;
           case 1:
-          headerCell.innerHTML = sectNode;
+          headerCell.innerHTML = nameNode;
+          break;
+          case 2:
+          headerCell.innerHTML = locNode;
+          break;
+          case 3:
+          headerCell.innerHTML = timeNode;
+          break;
+          case 4:
+          headerCell.innerHTML = profNode;
           break;
         }
         row.appendChild(headerCell);
@@ -52,45 +55,33 @@ function displayTable(data)
       //var tableRow = document.createElement("tr");
 
       row = table.insertRow(-1);
-      for (var j = 0; j < cols; j++)
+      for (var j = 0; j < 5; j++)
       {
         var tableCell = row.insertCell(-1);
         switch(j)
         {
           case 0:
-          tableCell.innerHTML = students_has_course_offering[i].Students_StudentID;
-          console.log("in switch 0: " + students_has_course_offering[i].Students_StudentID);
+          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_Section;
+          console.log("in switch 0: " + students_has_course_offering[i].Course_Offering_Section);
           break;
           case 1:
-          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_Section;
-          console.log("in switch 1: " + students_has_course_offering[i].Course_Offering_Section);
+          tableCell.innerHTML = students_has_course_offering[i].Courses_CourseName;
+          console.log("in switch 1: " + students_has_course_offering[i].Courses_CourseName);
+          break;
+          case 2:
+          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_ClassLocation;
+          console.log("in switch 2: " + students_has_course_offering[i].Course_Offering_ClassLocation);
+          break;
+          case 3:
+          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_ClassTime;
+          console.log("in switch 3: " + students_has_course_offering[i].Course_Offering_ClassTime);
+          break;
+          case 4:
+          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_ClassProfessor;
+          console.log("in switch 4: " + students_has_course_offering[i].Course_Offering_ClassProfessor);
           break;
         }
-        row.appendChild(tableCell);
+      row.appendChild(tableCell);
       }
-
     }
-  /*
-        //var student = students[i];
-        //console.log(student.StudentName);
-        //$("#students").append(student.StudentID + " " + student.StudentName + "<br>");
-
-    /* //Get the count of columns.
-     var columnCount = customers[0].length;
-
-   //Add the header row.
-     var row = table.insertRow(-1);
-     for (var i = 0; i < columnCount; i++) {
-         var headerCell = document.createElement("TH");
-         headerCell.innerHTML = customers[0][i];
-         row.appendChild(headerCell);
-     }
-
-     //Add the data rows.
-     for (var i = 1; i < customers.length; i++) {
-         row = table.insertRow(-1);
-         for (var j = 0; j < columnCount; j++) {
-             var cell = row.insertCell(-1);
-             cell.innerHTML = customers[i][j];
-         }*/
 }
