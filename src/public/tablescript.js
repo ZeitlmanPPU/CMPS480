@@ -85,3 +85,21 @@ function displayTable(data)
       }
     }
 }
+
+function showDropdown() {
+  document.getElementById('courses').classList.toggle("show");
+}
+
+// Closes the dropdown if user clicks outside of dropdown menu
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbutton')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}

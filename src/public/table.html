@@ -4,12 +4,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+    $(function() {
 
+      function showCourses() {
+        $("#courses").empty();
+        $("#courses").append("Loading data ...");
+        $.ajax({
+          type: "GET",
+          url: "courses",
+          success: function(json) {
+            if (!json.success) {
+              alert(json.message);
+            }
+            else {
+              $("#courses").empty();
+              var rows = json.data;
+              for (var i = 0; i < rows.length; i++) {
+                $("#courses").append(rows[i].CourseSection + " - " + rows[i].CourseName + "<br>");
+              }
+            }
+          },
+          error: function (textStatus, errorThrown) {
+            alert("Request failed!");
+          }
+        });
+      }
+      showCourses();
+      });
+
+</script>
 </head>
 
 <body onload="maketable()">
     <div class="landing-wrap">
         <div class="landing-html">
+
+        <div class="dropdown">
+            <button onclick="showDropdown()" class="dropbutton">Course list</button>
+            <div id="courses" class="dropdown-content">
+            </div>
+          </div>         
 
             <table id="classtable">
 
