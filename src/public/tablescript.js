@@ -90,6 +90,11 @@ function showDropdown() {
   document.getElementById('courses').classList.toggle("show");
 }
 
+// Stops the dropdown from closing if you click inside it
+document.getElementById("courses").addEventListener('click', function (event) {
+  event.stopPropagation();
+});
+
 // Closes the dropdown if user clicks outside of dropdown menu
 window.onclick = function(event) {
   if (!event.target.matches('.dropbutton')) {
