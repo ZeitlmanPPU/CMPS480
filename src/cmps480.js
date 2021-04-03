@@ -211,7 +211,7 @@ function students_has_course_offering(req, res) {
       return;
     }
     // query the database
-    conn.query("SELECT Course_Offering_Section,Courses_CourseName,ClassLocation,ClassTime,ClassProfessor FROM students_has_course_offering, course_offering WHERE course_offering.Courses_CourseSection = students_has_course_offering.Course_Offering_Section;", function(err, rows, fields) {
+    conn.query("SELECT Course_Offering_Code,Courses_CourseName,ClassLocation,ClassTime,ClassProfessor FROM students_has_course_offering, course_offering WHERE course_offering.Courses_CourseCode = students_has_course_offering.Course_Offering_Code;", function(err, rows, fields) {
       // build json result object
       var outjson = {};
       if (err) {
