@@ -13,9 +13,6 @@ http.createServer(function(req, res) {
     else if (path === "/add_user") {
       addUser(req, res);
     }
-    else if (path === "/members") {
-        addUser(req, res);
-    }
     else if (path === "/students") {
       students(req, res);
     }
@@ -115,36 +112,6 @@ function users(req, res) {
   });
 }
 
-/*
-function members(req, res) {
-    var conn = login.php;
-    // connect to database
-    conn.connect(function (err) {
-        if (err) {
-            console.error("ERROR: cannot connect: " + e);
-            return;
-        }
-        // query the database
-        conn.query("SELECT * FROM members", function (err, rows, fields) {
-            // build json result object
-            var outjson = {};
-            if (err) {
-                // query failed
-                outjson.success = false;
-                outjson.message = "Query failed: " + err;
-            }
-            else {
-                // query successful
-                outjson.success = true;
-                outjson.message = "Query successful!";
-                outjson.data = rows;
-            }
-            // return json object that contains the result of the query
-            sendResponse(req, res, outjson);
-        });
-        conn.end();
-    });
-}*/
 function students(req, res) {
   var conn = mysql.createConnection(credentials.connection);
   // connect to database
@@ -244,7 +211,7 @@ function students_has_course_offering(req, res) {
       return;
     }
     // query the database
-    conn.query("SELECT * FROM students_has_course_offering", function(err, rows, fields) {
+    conn.query("SELECT Course_Offering_Section,Courses_CourseName,ClassLocation,ClassTime,ClassProfessor FROM students_has_course_offering, course_offering WHERE course_offering.Courses_CourseSection = students_has_course_offering.Course_Offering_Section;", function(err, rows, fields) {
       // build json result object
       var outjson = {};
       if (err) {
