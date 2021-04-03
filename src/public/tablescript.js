@@ -3,20 +3,18 @@ function maketable() {
     co_data_request.open('GET', 'http://bahayzl.it.pointpark.edu:3000/students_has_course_offering');
     co_data_request.send();
     //after loading the variable data, create calls to the conversion and display functions
-
     co_data_request.onload = function () {
         var cdata = JSON.parse(co_data_request.responseText);
         console.log(cdata);
-        // console.log("Student ID is " + tdata.data[0].StudentID);
         displayTable(cdata);
-    }
+        }
     //   var tdata = JSON.parse(st_data_request.responseText);
 }
 
 function displayTable(data)
 {
     var table = document.getElementById("classtable");
-    var sectNode = "Course Section";
+    var codeNode = "Course Code";
     var nameNode = "Course Name";
     var locNode = "Class Location";
     var timeNode = "Time of Class";
@@ -31,7 +29,7 @@ function displayTable(data)
         switch(i)
         {
           case 0:
-          headerCell.innerHTML = sectNode;
+          headerCell.innerHTML = codeNode;
           break;
           case 1:
           headerCell.innerHTML = nameNode;
@@ -61,24 +59,24 @@ function displayTable(data)
         switch(j)
         {
           case 0:
-          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_Section;
-          console.log("in switch 0: " + students_has_course_offering[i].Course_Offering_Section);
+          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_Code;
+          console.log("in switch 0: " + students_has_course_offering[i].Course_Offering_Code);
           break;
           case 1:
           tableCell.innerHTML = students_has_course_offering[i].Courses_CourseName;
           console.log("in switch 1: " + students_has_course_offering[i].Courses_CourseName);
           break;
           case 2:
-          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_ClassLocation;
-          console.log("in switch 2: " + students_has_course_offering[i].Course_Offering_ClassLocation);
+          tableCell.innerHTML = students_has_course_offering[i].ClassLocation;
+          console.log("in switch 2: " + students_has_course_offering[i].ClassLocation);
           break;
           case 3:
-          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_ClassTime;
-          console.log("in switch 3: " + students_has_course_offering[i].Course_Offering_ClassTime);
+          tableCell.innerHTML = students_has_course_offering[i].ClassTime;
+          console.log("in switch 3: " + students_has_course_offering[i].ClassTime);
           break;
           case 4:
-          tableCell.innerHTML = students_has_course_offering[i].Course_Offering_ClassProfessor;
-          console.log("in switch 4: " + students_has_course_offering[i].Course_Offering_ClassProfessor);
+          tableCell.innerHTML = students_has_course_offering[i].ClassProfessor;
+          console.log("in switch 4: " + students_has_course_offering[i].ClassProfessor);
           break;
         }
       row.appendChild(tableCell);
@@ -90,13 +88,12 @@ function showDropdown() {
   document.getElementById('courses').classList.toggle("show");
 }
 
+// Closes the dropdown if user clicks outside of dropdown menu
+window.onclick = function(event) {
 // Stops the dropdown from closing if you click inside it
 document.getElementById("courses").addEventListener('click', function (event) {
   event.stopPropagation();
 });
-
-// Closes the dropdown if user clicks outside of dropdown menu
-window.onclick = function(event) {
   if (!event.target.matches('.dropbutton')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
