@@ -26,6 +26,7 @@ function displayTable(data)
     for (var i = 0; i < 5; i++)
     {
         var headerCell = document.createElement("th");
+        var linkNode = document.createElement("a");
         switch(i)
         {
           case 0:
@@ -35,7 +36,10 @@ function displayTable(data)
           headerCell.innerHTML = nameNode;
           break;
           case 2:
-          headerCell.innerHTML = locNode;
+            linkNode.href='map.html';
+          linkNode.innerText = locNode;
+          headerCell.appendChild(linkNode);
+         // headerCell.setAttribute('href',"map.html");
           break;
           case 3:
           headerCell.innerHTML = timeNode;
