@@ -79,7 +79,7 @@
 
 		.login-html .sign-in:checked + .tab {
 			color: #fff;
-			border-color: #1161ee;
+			border-color: #5b7d1c;
 		}
 
 		.login-form {
@@ -163,7 +163,7 @@
 				}
 
 					.login-form .group .check:checked + label .icon {
-						background: #1161ee;
+						background: #5b7d1c;
 					}
 
 						.login-form .group .check:checked + label .icon:before {
