@@ -24,17 +24,17 @@
 		}
 
 		*, :after, :before {
-			box-sizing: border-box
+			box-sizing: border-box;
 		}
 
 		.clearfix:after, .clearfix:before {
 			content: '';
-			display: center
+			display: center;
 		}
 
 		.clearfix:after {
 			clear: both;
-			display: center
+			display: center;
 		}
 
 		.map-wrap {
