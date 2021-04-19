@@ -21,8 +21,6 @@ function displayTable(data)
     var profNode = "Professor Name";
     var students_has_course_offering = data.data;
 
-    $("#classtable").empty();
-
     //Add the header row.
     var row = table.insertRow(-1);
     for (var i = 0; i < 5; i++)

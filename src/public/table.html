@@ -33,51 +33,12 @@
         });
       }
       showCourses();
-
-    $("#submit_id_button").click(function() {
-     var myID = $("#myid").val();
-     $.ajax({
-       type: "POST",
-       url: "submit_id",
-       data: JSON.stringify({
-        myID: myID
-       }),
-       success: function(json) {
-         console.log("SubmitID return value: ")
-         console.log(JSON.stringify(json));
-         if (!json.success) {
-           alert(json.message);
-         }
-         else {
-           // maketable(json.data);
-           displayTable(json);
-         }
-       },
-       error: function (textStatus, errorThrown) {
-         alert("Request failed!");
-       }
-     });
-   });
       });
-
-     /* function submitID(){
-            // Selecting the input element and get its value 
-            var idVal = document.getElementById("myid").value;
-            
-            // Set session variable
-            sessionStorage.setItem("submittedID", idVal);
-            console.log(idVal);
-                   
-            
-            // Displaying the value
-            //alert(inputVal);
-            console.log(idVal);
-        } */
 
 </script>
 </head>
 
-<body>
+<body onload="maketable()">
     <div class="landing-wrap">
         <div class="landing-html">
 
@@ -85,11 +46,6 @@
             <button onclick="showDropdown()" class="dropbutton">Course list</button>
             <div id="courses" class="dropdown-content">
             </div>
-          </div>         
-
-          <div>
-            <input type="text" id="myid" name="myid" placeholder="Enter your Student ID" required>
-            <button id="submit_id_button">Submit ID</button>
           </div>
 
             <table id="classtable">

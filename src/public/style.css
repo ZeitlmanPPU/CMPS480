@@ -19,7 +19,7 @@ th {
 }
 
    tr:nth-child(even) {
-    background-color: gray;   
+    background-color: gray;
 }
 
 tr:nth-child(odd) {
@@ -65,32 +65,35 @@ a{color:inherit;text-decoration:none}
     padding: 16px;
     font-size: 16px;
     border: none;
+    border-radius: 25px;
     cursor: pointer;
   }
-  
+
   .dropbutton:hover, .dropbutton:focus {
     background-color: #6e991d;
   }
-  
+
   .dropdown {
     position: center;
     display: inline-block;
   }
-  
+
   .dropdown-content {
-    display: none;
+    display:none;
+    border-radius:25px;
     position: absolute;
-    background-color: goldenrod;
+    background-color: burlywood;
+    width: 355px;
     min-width: 160px;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
   }
-  
+
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 12px 20px;
     text-decoration: none;
-    display: block;
+    display: inline-block;
   }
 
   img {
@@ -100,18 +103,6 @@ a{color:inherit;text-decoration:none}
     width: 50%;
   }
 
-  input[type=text] {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-  }
-
-  input[type=submit] {
-    position: relative;
-    display: block;
-    margin: 10px auto;
-  }
-  
   .dropdown a:hover {background-color: #ddd;}
-  
-  .show {display: block;}
+
+  .show {display:block;padding-left:12px;border-radius:25px}
