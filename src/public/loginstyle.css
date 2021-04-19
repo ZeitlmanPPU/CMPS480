@@ -62,6 +62,7 @@
 		.login-form .group .label,
 		.login-form .group .button {
 			text-transform: uppercase;
+			font-weight: bold;
 			position: relative;
 		}
 
@@ -91,7 +92,7 @@
 		}
 
 			.login-form .group {
-				margin-bottom: 15px;
+				margin-bottom: 16px;
 				display: center;
 			}
 
