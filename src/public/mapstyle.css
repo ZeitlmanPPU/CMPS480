@@ -31,17 +31,21 @@
 
 		.clearfix:after, .clearfix:before {
 			content: '';
-			display: center;
+			display: block;
+			align-items: center;
+	
 		}
 
 		.clearfix:after {
 			clear: both;
-			display: center;
+			display: block;
+			align-items: center;
+	
 		}
 
 		.map-wrap {
 			width: 100%;
-			margin: none;
+			margin: unset;
 			max-width: 100%;
 			min-height: 100%;
 			position: absolute;

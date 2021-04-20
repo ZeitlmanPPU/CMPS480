@@ -33,14 +33,31 @@ body {
     font: 600 16px/18px Arial, small-caps;
 }
 
-*,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:center}
-.clearfix:after{clear:both;display:center}
-a{color:inherit;text-decoration:none}
+*,:after,:before {
+    box-sizing:border-box;
+
+}
+.clearfix:after, .clearfix:before {
+    content: '';
+    display: block;
+    align-items: center;
+}
+
+.clearfix:after {
+    clear: both;
+    display: block;
+    align-items: center;
+}
+
+a {
+    color:inherit;
+    text-decoration:none
+
+}
 
 .landing-wrap {
     width: 100%;
-    margin: none;
+    margin: unset;
     max-width: 100%;
     min-height: 100%;
     position: absolute;
@@ -103,6 +120,37 @@ a{color:inherit;text-decoration:none}
     width: 50%;
   }
 
-  .dropdown a:hover {background-color: #ddd;}
+  .dropdown a:hover {
+      background-color: #ddd;
 
-  .show {display:block;padding-left:12px;border-radius:25px}
+  }
+
+  .show {
+      display:block;
+      padding-left:12px;
+      border-radius:25px
+
+  }
+
+button#submit_id_button {
+    background-color: #5b7d1c;
+    margin: auto;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: block;
+    align-items: center;
+}
+input#myid {
+    border: none;
+    margin:auto;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.1);
+    margin-bottom: 10px;
+    display:list-item;
+    align-items:center;
+}

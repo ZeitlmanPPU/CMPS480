@@ -11,12 +11,14 @@
 
 		.clearfix:after, .clearfix:before {
 			content: '';
-			display: center
+			display: block;
+			align-items: center;
 		}
 
 		.clearfix:after {
 			clear: both;
-			display: center
+			display: block;
+			align-items: center;
 		}
 
 		a {
@@ -26,7 +28,7 @@
 
 		.login-wrap {
 			width: 100%;
-			margin: none;
+			margin:unset;
 			max-width: 100%;
 			min-height: 100%;
 			position: absolute;
@@ -73,7 +75,7 @@
 			margin: 0 15px 10px 0;
 			display: grid;
 			text-align: center;
-			vertical-align: center;
+			align-items: center;
 			position: static;
 			border-bottom: 2px solid transparent;
 		}
@@ -93,7 +95,8 @@
 
 			.login-form .group {
 				margin-bottom: 16px;
-				display: center;
+				display:block;
+				align-items:center;
 			}
 
 				.login-form .group .label,

@@ -1,6 +1,6 @@
 function maketable() {
     var co_data_request = new XMLHttpRequest();
-    co_data_request.open('GET', 'http://bahayzl.it.pointpark.edu:3000/students_has_course_offering');
+    co_data_request.open('GET', 'http://mssapie.it.pointpark.edu:3000/students_has_course_offering');
     co_data_request.send();
     //after loading the variable data, create calls to the conversion and display functions
     co_data_request.onload = function () {
