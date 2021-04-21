@@ -43,13 +43,12 @@
         myID: myID
        }),
        success: function(json) {
-         console.log("SubmitID return value: ")
-         console.log(JSON.stringify(json));
+        // console.log("SubmitID return value: ")
+        // console.log(JSON.stringify(json));
          if (!json.success) {
            alert(json.message);
          }
          else {
-           // maketable(json.data);
            displayTable(json);
          }
        },
@@ -58,21 +57,51 @@
        }
      });
    });
-      });
 
-     /* function submitID(){
-            // Selecting the input element and get its value 
-            var idVal = document.getElementById("myid").value;
-            
-            // Set session variable
-            sessionStorage.setItem("submittedID", idVal);
-            console.log(idVal);
-                   
-            
-            // Displaying the value
-            //alert(inputVal);
-            console.log(idVal);
-        } */
+   $("#remove_course_button").click(function() {
+     var myCourseCode = $("#myCourseCode").val();
+     var myID = $("#myid").val();
+     $.ajax({
+       type: "POST",
+       url: "remove_course",
+       data: JSON.stringify({
+         myID: myID,
+         myCourseCode: myCourseCode
+       }),
+       success: function(json) {
+        console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           $.ajax({
+         type: "POST",
+         url: "submit_id",
+         data: JSON.stringify({
+         myID: myID
+        }),
+       success: function(json) {
+        // console.log("SubmitID return value: ")
+        // console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           displayTable(json);
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   });
+  });
 
 </script>
 </head>
@@ -89,7 +118,9 @@
 
           <div>
             <input type="text" id="myid" name="myid" placeholder="Enter your Student ID" required>
+            <input type="text" id="myCourseCode" name="myCourseCode" placeholder="Enter a course code" >
             <button id="submit_id_button">Submit ID</button>
+            <button id="remove_course_button">Remove Course</button>
           </div>
 
             <table id="classtable">

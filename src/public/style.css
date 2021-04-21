@@ -144,6 +144,18 @@ button#submit_id_button {
     display: block;
     align-items: center;
 }
+button#remove_course_button {
+    background-color: #5b7d1c;
+    margin: auto;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: block;
+    align-items: center;
+}
 input#myid {
     border: none;
     margin:auto;
@@ -153,4 +165,14 @@ input#myid {
     margin-bottom: 10px;
     display:list-item;
     align-items:center;
+}
+input#myCourseCode {
+    border: none;
+    margin: auto;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.1);
+    margin-bottom: 10px;
+    display: list-item;
+    align-items: center;
 }

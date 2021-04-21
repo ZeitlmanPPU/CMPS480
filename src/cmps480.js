@@ -17,6 +17,9 @@ http.createServer(function(req, res) {
     else if (path === "/remove_user") {
       removeUser(req, res);
     }
+    else if (path === "/remove_course") {
+      removeCourse(req, res);
+    }
     else if (path === "/submit_id") {
       submitID(req, res);
     }
@@ -349,8 +352,50 @@ function removeUser(req, res) {
         return;
       }
       // query the database
-      //conn.query("INSERT INTO USERS (NAME) VALUE ('" + injson.name + "')", function(err, rows, fields) {
       conn.query("DELETE FROM USERS WHERE NAME = (?);", [injson.name], function(err, rows, fields) {
+        // build json result object
+        var outjson = {};
+        if (err) {
+          // query failed
+          outjson.success = false;
+          outjson.message = "Query failed: " + err;
+        }
+        else {
+          // query successful
+          outjson.success = true;
+          outjson.message = "Query successful!";
+        }
+        // return json object that contains the result of the query
+        sendResponse(req, res, outjson);
+      });
+      conn.end();
+    });
+  });
+}
+
+function removeCourse(req, res) {
+  var body = "";
+  req.on("data", function (data) {
+    body += data;
+    // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+    if (body.length > 1e6) {
+      // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
+      req.connection.destroy();
+    }
+  });
+  req.on("end", function () {
+    var injson = JSON.parse(body);
+    var conn = mysql.createConnection(credentials.connection);
+    // connect to database
+    conn.connect(function(err) {
+      if (err) {
+        console.error("ERROR: cannot connect: " + e);
+        return;
+      }
+      console.log("myID: " + injson.myID);
+      console.log("myCourseCode: " + injson.myCourseCode);
+      // query the database
+      conn.query("DELETE FROM students_has_course_offering WHERE Students_StudentID = ('" + injson.myID + "') AND students_has_course_offering.Course_Offering_Code = ('" + injson.myCourseCode + "');", [injson.myID, injson.myCourseCode], function(err, rows, fields) {
         // build json result object
         var outjson = {};
         if (err) {
