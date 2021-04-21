@@ -135,6 +135,7 @@ a {
 button#submit_id_button {
     background-color: #5b7d1c;
     margin: auto;
+    margin-bottom:10px;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -147,7 +148,6 @@ button#submit_id_button {
 button#remove_course_button {
     background-color: #5b7d1c;
     margin: auto;
-    margin-bottom: 10px;
     color: white;
     padding: 16px;
     font-size: 16px;
