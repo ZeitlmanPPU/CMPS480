@@ -33,11 +33,14 @@ body {
     font: 600 16px/18px Arial, small-caps;
 }
 
-*,:after,:before {
+*,
+:after,
+:before {
     box-sizing:border-box;
 
 }
-.clearfix:after, .clearfix:before {
+.clearfix:after, 
+.clearfix:before {
     content: '';
     display: block;
     align-items: center;
@@ -86,7 +89,8 @@ a {
     cursor: pointer;
   }
 
-  .dropbutton:hover, .dropbutton:focus {
+  .dropbutton:hover, 
+  .dropbutton:focus {
     background-color: #6e991d;
   }
 
@@ -131,8 +135,11 @@ a {
       border-radius:25px
 
   }
+b {
 
-button#submit_id_button {
+}
+
+.StudentID button {
     background-color: #5b7d1c;
     margin: auto;
     margin-bottom:10px;
@@ -145,19 +152,7 @@ button#submit_id_button {
     display: block;
     align-items: center;
 }
-button#remove_course_button {
-    background-color: #5b7d1c;
-    margin: auto;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    display: block;
-    align-items: center;
-}
-input#myid {
+.StudentID input#myid {
     border: none;
     margin:auto;
     padding: 15px 20px;
@@ -167,13 +162,44 @@ input#myid {
     display:list-item;
     align-items:center;
 }
-input#myCourseCode {
+.StudentID button#submit_id_button:hover, 
+.StudentID button#submit_id_button:focus {
+    background-color: #6e991d;
+}
+
+.AddDrop {
+    align-items: center;
+}
+.AddDrop button#add_course_button, 
+button#remove_course_button {
+    background-color: #5b7d1c;
+    margin-bottom:10px;
+    margin-left:auto;
+    margin-right:auto;
+    block-size: min-content;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: block;
+}
+.AddDrop input#myCourseCode {
     border: none;
     margin: auto;
     padding: 15px 20px;
     border-radius: 25px;
     background: rgba(255,255,255,.1);
     margin-bottom: 10px;
-    display: list-item;
-    align-items: center;
+    display: block;
+    
 }
+.AddDrop button#add_course_button:hover, 
+.AddDrop button#add_course_button:focus {
+    background-color: #6e991d;
+}
+    .AddDrop button#remove_course_button:hover, 
+    .AddDrop button#remove_course_button:focus {
+        background-color: #6e991d;
+    }

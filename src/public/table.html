@@ -101,6 +101,50 @@
        }
      });
    });
+
+  $("#add_course_button").click(function() {
+     var myCourseCode = $("#myCourseCode").val();
+     var myID = $("#myid").val();
+     $.ajax({
+       type: "POST",
+       url: "add_course",
+       data: JSON.stringify({
+         myID: myID,
+         myCourseCode: myCourseCode
+       }),
+       success: function(json) {
+        console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           $.ajax({
+         type: "POST",
+         url: "submit_id",
+         data: JSON.stringify({
+         myID: myID
+        }),
+       success: function(json) {
+         console.log("SubmitID return value: ")
+         console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           displayTable(json);
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   });
   });
 
 </script>
@@ -109,19 +153,23 @@
 <body>
     <div class="landing-wrap">
         <div class="landing-html">
+         
+              <div class="dropdown">
+                  <button onclick="showDropdown()" class="dropbutton" name="CourseList">Course list</button>
+                 <div id="courses" class="dropdown-content">
+                   </div>
+                 </div>
+               
 
-        <div class="dropdown">
-            <button onclick="showDropdown()" class="dropbutton">Course list</button>
-            <div id="courses" class="dropdown-content">
-            </div>
-          </div>         
-
-          <div>
+        <div class="StudentID">
             <input type="text" id="myid" name="myid" placeholder="Enter your Student ID" required>
-            <input type="text" id="myCourseCode" name="myCourseCode" placeholder="Enter a course code" >
             <button id="submit_id_button">Submit ID</button>
-            <button id="remove_course_button">Remove Course</button>
-          </div>
+        </div>
+        <div class="AddDrop">
+            <input type="text" class="AddDrop" id="myCourseCode" name="myCourseCode" placeholder="Enter a course code">
+            <button class="AddDrop" id="add_course_button">Add Course</button>
+            <button class="AddDrop" id="remove_course_button">Remove Course</button>
+        </div>
 
             <table id="classtable">
 

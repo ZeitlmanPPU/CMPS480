@@ -129,6 +129,11 @@
 				.login-form .group .button {
 					background: #5b7d1c;
 				}
+				.login-form .group .button:focus,
+				.login-form .group .button:hover {
+					background-color: #6e991d;
+					cursor: pointer;
+				}
 
 				.login-form .group label .icon {
 					width: 15px;

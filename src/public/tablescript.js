@@ -88,6 +88,37 @@ function displayTable(data)
       row.appendChild(tableCell);
       }
     }
+    {
+        //var tableRow = document.createElement("tr");
+
+        row = table.insertRow(+1);
+        for (var k = 0; k < 5; k++) {
+            var tableCell = row.insertCell(+1);
+            switch (k) {
+                case 0:
+                    tableCell.innerHTML = students_has_course_offering[i].Course_Offering_Code;
+                    console.log("in switch 0: " + students_has_course_offering[i].Course_Offering_Code);
+                    break;
+                case 1:
+                    tableCell.innerHTML = students_has_course_offering[i].Courses_CourseName;
+                    console.log("in switch 1: " + students_has_course_offering[i].Courses_CourseName);
+                    break;
+                case 2:
+                    tableCell.innerHTML = students_has_course_offering[i].ClassLocation;
+                    console.log("in switch 2: " + students_has_course_offering[i].ClassLocation);
+                    break;
+                case 3:
+                    tableCell.innerHTML = students_has_course_offering[i].ClassTime;
+                    console.log("in switch 3: " + students_has_course_offering[i].ClassTime);
+                    break;
+                case 4:
+                    tableCell.innerHTML = students_has_course_offering[i].ClassProfessor;
+                    console.log("in switch 4: " + students_has_course_offering[i].ClassProfessor);
+                    break;
+            }
+            row.appendChild(tableCell);
+        }
+    }
 }
 
 function showDropdown() {

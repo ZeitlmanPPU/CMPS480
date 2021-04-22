@@ -24,6 +24,9 @@
 			text-decoration: none;
 			margin-top: 25px;
 		}
+		a:focus, a:hover {
+	background-color: #6e991d;
+		}
 
 		*, :after, :before {
 			box-sizing: border-box;
