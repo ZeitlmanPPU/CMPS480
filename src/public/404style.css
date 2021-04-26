@@ -82,9 +82,9 @@ body {
   transition: 0.2s all;
 }
 
-.notfound a:hover {
-  opacity: 0.8;
-}
+    .notfound a:hover, .notfound a:focus {
+    background-color: #6e991d;
+    }
 
 @media only screen and (max-width: 767px) {
   .notfound .notfound-404 {
