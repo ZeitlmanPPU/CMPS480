@@ -43,13 +43,21 @@
         myID: myID
        }),
        success: function(json) {
+<<<<<<< Updated upstream
          console.log("SubmitID return value: ")
          console.log(JSON.stringify(json));
+=======
+        // console.log("SubmitID return value: ")
+        // console.log(JSON.stringify(json));
+>>>>>>> Stashed changes
          if (!json.success) {
            alert(json.message);
          }
          else {
+<<<<<<< Updated upstream
            // maketable(json.data);
+=======
+>>>>>>> Stashed changes
            displayTable(json);
          }
        },
@@ -58,7 +66,37 @@
        }
      });
    });
+<<<<<<< Updated upstream
       });
+=======
+
+   $("#remove_course_button").click(function() {
+     var myCourseCode = $("#myCourseCode").val();
+     var myID = $("#myid").val();
+     $.ajax({
+       type: "POST",
+       url: "remove_course",
+       data: JSON.stringify({
+         myID: myID,
+         myCourseCode: myCourseCode
+       }),
+       success: function(json) {
+        console.log("RemoveCourseCode return value: ")
+        console.log(JSON.stringify(json));
+         if (!json.success) {
+           alert(json.message);
+         }
+         else {
+           alert("Please click the 'Submit ID' button to refresh your schedule!")
+         }
+       },
+       error: function (textStatus, errorThrown) {
+         alert("Request failed!");
+       }
+     });
+   });
+  });
+>>>>>>> Stashed changes
 
      /* function submitID(){
             // Selecting the input element and get its value 
@@ -89,7 +127,13 @@
 
           <div>
             <input type="text" id="myid" name="myid" placeholder="Enter your Student ID" required>
+<<<<<<< Updated upstream
             <button id="submit_id_button">Submit ID</button>
+=======
+            <input type="text" id="myCourseCode" name="myCourseCode" placeholder="Enter a course code" >
+            <button id="submit_id_button">Submit ID</button>
+            <button id="remove_course_button">Remove Course</button>
+>>>>>>> Stashed changes
           </div>
 
             <table id="classtable">
