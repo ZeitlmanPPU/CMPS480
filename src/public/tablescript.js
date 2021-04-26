@@ -1,6 +1,6 @@
 function maketable() {
     var co_data_request = new XMLHttpRequest();
-    co_data_request.open('GET', 'http://bahayzl.it.pointpark.edu:3000/students_has_course_offering');
+    co_data_request.open('GET', 'https://mssapie.it.pointpark.edu/www/src/students_has_course_offering');
     co_data_request.send();
     //after loading the variable data, create calls to the conversion and display functions
     co_data_request.onload = function () {
@@ -20,6 +20,8 @@ function displayTable(data)
     var timeNode = "Time of Class";
     var profNode = "Professor Name";
     var students_has_course_offering = data.data;
+
+    $("#classtable").empty();
 
     //Add the header row.
     var row = table.insertRow(-1);
@@ -85,6 +87,37 @@ function displayTable(data)
         }
       row.appendChild(tableCell);
       }
+    }
+    {
+        //var tableRow = document.createElement("tr");
+
+        row = table.insertRow(+1);
+        for (var k = 0; k < 5; k++) {
+            var tableCell = row.insertCell(0);
+            switch (k) {
+                case 0:
+                    tableCell.innerHTML = students_has_course_offering[i].Course_Offering_Code;
+                    console.log("in switch 0: " + students_has_course_offering[i].Course_Offering_Code);
+                    break;
+                case 1:
+                    tableCell.innerHTML = students_has_course_offering[i].Courses_CourseName;
+                    console.log("in switch 1: " + students_has_course_offering[i].Courses_CourseName);
+                    break;
+                case 2:
+                    tableCell.innerHTML = students_has_course_offering[i].ClassLocation;
+                    console.log("in switch 2: " + students_has_course_offering[i].ClassLocation);
+                    break;
+                case 3:
+                    tableCell.innerHTML = students_has_course_offering[i].ClassTime;
+                    console.log("in switch 3: " + students_has_course_offering[i].ClassTime);
+                    break;
+                case 4:
+                    tableCell.innerHTML = students_has_course_offering[i].ClassProfessor;
+                    console.log("in switch 4: " + students_has_course_offering[i].ClassProfessor);
+                    break;
+            }
+            row.appendChild(tableCell);
+        }
     }
 }
 
